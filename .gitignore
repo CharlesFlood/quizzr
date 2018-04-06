@@ -1,3 +1,5 @@
 *#*#*
 *.pyc
 quizzr/settings.py
+*~
+db.sqlite3
