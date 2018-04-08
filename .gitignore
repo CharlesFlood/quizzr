@@ -3,3 +3,4 @@
 quizzr/settings.py
 *~
 db.sqlite3
+doc*
