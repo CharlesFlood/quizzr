@@ -21,6 +21,8 @@ class Quiz(models.Model):
     name = models.CharField(max_length=20)
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "quizzes"
 
 class QuizContent(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
@@ -31,6 +33,5 @@ class QuizContent(models.Model):
 class Record(models.Model):
     officer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    answer_given = models.ForeignKey(Answer, on_delete=models.CASCADE)
-    
+    quiz_score = models.DecimalField(max_digits=5, decimal_places=2)
+    timestamp = models.DateTimeField(auto_now_add=True)

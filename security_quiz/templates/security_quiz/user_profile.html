@@ -1,0 +1,25 @@
+{# {% extends "security_quiz/base.html" %} #}
+
+{% block content %}
+<h1>({{ user.username }})</h1>
+
+<a href='#'>Change my password</a>
+</p>
+<h2>Your results:</h2>
+{% if completed_quizzes %}
+<table>
+  <th><td>Quiz</td><td>Score</td><td>Timestamp</td></th>
+  {% for quiz in completed_quizzes %}
+  <tr>
+    <td>{{ quiz.quiz.name }}</td>
+    <td>{{ quiz.quiz_score }}</td>
+    <td>{{ quiz.timestamp }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% else %}
+You have not taken any quizzes yet
+{% endif %}
+
+{% endblock %}
