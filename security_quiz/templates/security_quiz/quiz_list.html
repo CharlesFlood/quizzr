@@ -1,0 +1,27 @@
+{# {% extends "security_quiz/base.html" %} #}
+
+{% block content %}
+<h1>Available Training ({{ user.username }})</h1>
+
+</p>
+<h2>Needed or overdue:</h2>
+{% if quiz_list %}
+<table>
+  {% for quiz in quiz_list %}
+  <tr>
+    <td>{{ quiz.name }}</td>
+    <td><a href="{% url 'security_quiz:take_quiz' quiz.id %}">Take Quiz</a> </td>
+    <td></td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% else %}
+You have not taken any quizzes yet
+{% endif %}
+
+
+{# <h2>Completed Training</h2> #}
+
+{% endblock %}
